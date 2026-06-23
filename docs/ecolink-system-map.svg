@@ -1,0 +1,188 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1700" height="1200" viewBox="0 0 1700 1200" role="img" aria-labelledby="title desc">
+  <title id="title">EcoLink System Map</title>
+  <desc id="desc">A page and module system map for EcoLink showing public pages, authentication, supplier, buyer, admin, and supporting system components.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#2e7d32"/>
+    </marker>
+    <style>
+      .bg { fill: #fbfdf9; }
+      .title { font: 700 34px Arial, sans-serif; fill: #1b5e20; }
+      .subtitle { font: 400 17px Arial, sans-serif; fill: #33691e; }
+      .label { font: 600 14px Arial, sans-serif; fill: #173f20; }
+      .small { font: 500 12px Arial, sans-serif; fill: #35513b; }
+      .root { fill: #2e7d32; stroke: #1b5e20; stroke-width: 2.2; rx: 10; }
+      .rootText { font: 700 16px Arial, sans-serif; fill: #ffffff; }
+      .public { fill: #e8f5e9; stroke: #43a047; stroke-width: 2; rx: 10; }
+      .auth { fill: #e0f2f1; stroke: #00897b; stroke-width: 2; rx: 10; }
+      .supplier { fill: #f1f8e9; stroke: #558b2f; stroke-width: 2; rx: 10; }
+      .buyer { fill: #e3f2fd; stroke: #1976d2; stroke-width: 2; rx: 10; }
+      .admin { fill: #f3e5f5; stroke: #7b1fa2; stroke-width: 2; rx: 10; }
+      .support { fill: #fffde7; stroke: #9e9d24; stroke-width: 2; rx: 10; }
+      .group { fill: none; stroke: #a5d6a7; stroke-width: 2; rx: 18; stroke-dasharray: 8 6; }
+      .line { stroke: #2e7d32; stroke-width: 2.2; fill: none; marker-end: url(#arrow); }
+      .supportLine { stroke: #689f38; stroke-width: 2; fill: none; marker-end: url(#arrow); stroke-dasharray: 7 5; }
+      .groupTitle { font: 700 18px Arial, sans-serif; fill: #1b5e20; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1700" height="1200"/>
+  <text class="title" x="850" y="48" text-anchor="middle">5.3 System Map - EcoLink</text>
+  <text class="subtitle" x="850" y="78" text-anchor="middle">Main pages, modules, and supporting components of the B2B sustainability platform</text>
+
+  <!-- Connector lines are intentionally drawn first so boxes and text stay in front. -->
+  <g id="connectors">
+    <path class="line" d="M850 167 L850 210"/>
+    <path class="line" d="M850 256 C850 280, 542 280, 542 300"/>
+    <path class="line" d="M850 256 C850 280, 752 280, 752 300"/>
+    <path class="line" d="M850 256 C850 280, 962 280, 962 300"/>
+    <path class="line" d="M850 256 C850 280, 1172 280, 1172 300"/>
+    <path class="line" d="M1172 344 L1172 380"/>
+    <path class="line" d="M1172 424 L1172 460"/>
+    <path class="line" d="M1172 344 C1172 500, 305 500, 305 600"/>
+    <path class="line" d="M1172 344 C1172 500, 850 500, 850 600"/>
+    <path class="line" d="M1172 344 C1172 500, 1395 500, 1395 600"/>
+
+    <path class="line" d="M305 644 C305 665, 182 665, 182 685"/>
+    <path class="line" d="M305 644 C305 665, 422 665, 422 685"/>
+    <path class="line" d="M422 727 L422 750"/>
+    <path class="line" d="M422 792 L422 815"/>
+    <path class="line" d="M182 727 L182 750"/>
+    <path class="line" d="M182 792 L182 815"/>
+    <path class="line" d="M182 857 L182 880"/>
+    <path class="line" d="M270 901 L335 901"/>
+    <path class="line" d="M422 922 L422 945"/>
+    <path class="line" d="M305 644 L305 1010"/>
+
+    <path class="line" d="M850 644 C850 665, 727 665, 727 685"/>
+    <path class="line" d="M850 644 C850 665, 967 665, 967 685"/>
+    <path class="line" d="M967 727 L967 750"/>
+    <path class="line" d="M967 792 L967 815"/>
+    <path class="line" d="M880 836 L815 771"/>
+    <path class="line" d="M727 792 L727 815"/>
+    <path class="line" d="M727 857 L727 880"/>
+    <path class="line" d="M815 901 L880 901"/>
+    <path class="line" d="M967 922 L967 945"/>
+    <path class="line" d="M880 966 L815 966"/>
+    <path class="line" d="M727 987 L727 1010"/>
+    <path class="line" d="M850 644 C850 995, 967 995, 967 1010"/>
+
+    <path class="line" d="M1395 644 C1395 665, 1272 665, 1272 685"/>
+    <path class="line" d="M1395 644 C1395 665, 1517 665, 1517 685"/>
+    <path class="line" d="M1395 644 C1395 740, 1272 740, 1272 760"/>
+    <path class="line" d="M1395 644 C1395 740, 1517 740, 1517 760"/>
+    <path class="line" d="M1395 644 C1395 815, 1272 815, 1272 835"/>
+
+    <path class="supportLine" d="M422 987 C422 1080, 472 1080, 472 1120"/>
+    <path class="supportLine" d="M967 987 C967 1080, 912 1080, 912 1120"/>
+    <path class="supportLine" d="M1395 877 C1395 1080, 692 1080, 692 1120"/>
+    <path class="supportLine" d="M967 922 C1060 995, 1132 1045, 1132 1120"/>
+    <path class="supportLine" d="M727 922 C900 1065, 1352 1065, 1352 1120"/>
+  </g>
+
+  <g id="boxes">
+    <rect class="root" x="735" y="115" width="230" height="52"/>
+    <rect class="public" x="755" y="210" width="190" height="46"/>
+    <rect class="public" x="455" y="300" width="175" height="44"/>
+    <rect class="public" x="665" y="300" width="175" height="44"/>
+    <rect class="auth" x="875" y="300" width="175" height="44"/>
+    <rect class="auth" x="1085" y="300" width="175" height="44"/>
+    <rect class="auth" x="1085" y="380" width="175" height="44"/>
+    <rect class="auth" x="1085" y="460" width="175" height="44"/>
+
+    <rect class="group" x="55" y="535" width="500" height="555"/>
+    <rect class="supplier" x="210" y="600" width="190" height="44"/>
+    <rect class="supplier" x="95" y="685" width="175" height="42"/>
+    <rect class="supplier" x="335" y="685" width="175" height="42"/>
+    <rect class="supplier" x="335" y="750" width="175" height="42"/>
+    <rect class="supplier" x="335" y="815" width="175" height="42"/>
+    <rect class="supplier" x="95" y="750" width="175" height="42"/>
+    <rect class="supplier" x="95" y="815" width="175" height="42"/>
+    <rect class="supplier" x="95" y="880" width="175" height="42"/>
+    <rect class="supplier" x="335" y="880" width="175" height="42"/>
+    <rect class="supplier" x="335" y="945" width="175" height="42"/>
+    <rect class="supplier" x="210" y="1010" width="190" height="42"/>
+
+    <rect class="group" x="600" y="535" width="500" height="555"/>
+    <rect class="buyer" x="755" y="600" width="190" height="44"/>
+    <rect class="buyer" x="640" y="685" width="175" height="42"/>
+    <rect class="buyer" x="880" y="685" width="175" height="42"/>
+    <rect class="buyer" x="880" y="750" width="175" height="42"/>
+    <rect class="buyer" x="880" y="815" width="175" height="42"/>
+    <rect class="buyer" x="640" y="750" width="175" height="42"/>
+    <rect class="buyer" x="640" y="815" width="175" height="42"/>
+    <rect class="buyer" x="640" y="880" width="175" height="42"/>
+    <rect class="buyer" x="880" y="880" width="175" height="42"/>
+    <rect class="buyer" x="880" y="945" width="175" height="42"/>
+    <rect class="buyer" x="640" y="945" width="175" height="42"/>
+    <rect class="buyer" x="640" y="1010" width="175" height="42"/>
+    <rect class="buyer" x="880" y="1010" width="175" height="42"/>
+
+    <rect class="group" x="1145" y="535" width="500" height="555"/>
+    <rect class="admin" x="1300" y="600" width="190" height="44"/>
+    <rect class="admin" x="1185" y="685" width="175" height="42"/>
+    <rect class="admin" x="1430" y="685" width="175" height="42"/>
+    <rect class="admin" x="1185" y="760" width="175" height="42"/>
+    <rect class="admin" x="1430" y="760" width="175" height="42"/>
+    <rect class="admin" x="1185" y="835" width="175" height="42"/>
+
+    <rect class="support" x="390" y="1120" width="165" height="42"/>
+    <rect class="support" x="610" y="1120" width="165" height="42"/>
+    <rect class="support" x="830" y="1120" width="165" height="42"/>
+    <rect class="support" x="1050" y="1120" width="165" height="42"/>
+    <rect class="support" x="1270" y="1120" width="165" height="42"/>
+  </g>
+
+  <g id="text">
+    <text class="rootText" x="850" y="147" text-anchor="middle">EcoLink Platform</text>
+    <text class="label" x="850" y="239" text-anchor="middle">Home Page</text>
+    <text class="label" x="542.5" y="328" text-anchor="middle">Contact Page</text>
+    <text class="label" x="752.5" y="328" text-anchor="middle">Pricing Page</text>
+    <text class="label" x="962.5" y="328" text-anchor="middle">Registration</text>
+    <text class="label" x="1172.5" y="328" text-anchor="middle">Login</text>
+    <text class="label" x="1172.5" y="408" text-anchor="middle">Forgot Password</text>
+    <text class="label" x="1172.5" y="488" text-anchor="middle">Reset Password</text>
+
+    <text class="groupTitle" x="305" y="570" text-anchor="middle">Supplier Factory Area</text>
+    <text class="label" x="305" y="628" text-anchor="middle">Supplier Dashboard</text>
+    <text class="small" x="182.5" y="711" text-anchor="middle">Profile / Edit Profile</text>
+    <text class="small" x="422.5" y="711" text-anchor="middle">Manage Listings</text>
+    <text class="small" x="422.5" y="776" text-anchor="middle">Create Waste Listing</text>
+    <text class="small" x="422.5" y="841" text-anchor="middle">Edit Listing</text>
+    <text class="small" x="182.5" y="776" text-anchor="middle">Purchase Requests</text>
+    <text class="small" x="182.5" y="841" text-anchor="middle">Accept / Decline</text>
+    <text class="small" x="182.5" y="906" text-anchor="middle">Chat &amp; Negotiation</text>
+    <text class="small" x="422.5" y="906" text-anchor="middle">Deal Details</text>
+    <text class="small" x="422.5" y="971" text-anchor="middle">Earnings Overview</text>
+    <text class="small" x="305" y="1036" text-anchor="middle">Notifications</text>
+
+    <text class="groupTitle" x="850" y="570" text-anchor="middle">Buyer Factory Area</text>
+    <text class="label" x="850" y="628" text-anchor="middle">Buyer Dashboard</text>
+    <text class="small" x="727.5" y="711" text-anchor="middle">Profile / Edit Profile</text>
+    <text class="small" x="967.5" y="711" text-anchor="middle">Search Listings</text>
+    <text class="small" x="967.5" y="776" text-anchor="middle">Search Filters</text>
+    <text class="small" x="967.5" y="841" text-anchor="middle">Listing Details</text>
+    <text class="small" x="727.5" y="776" text-anchor="middle">Send Purchase Request</text>
+    <text class="small" x="727.5" y="841" text-anchor="middle">Requests Status</text>
+    <text class="small" x="727.5" y="906" text-anchor="middle">Chat &amp; Negotiation</text>
+    <text class="small" x="967.5" y="906" text-anchor="middle">Cart</text>
+    <text class="small" x="967.5" y="971" text-anchor="middle">Payment</text>
+    <text class="small" x="727.5" y="971" text-anchor="middle">Deal Details</text>
+    <text class="small" x="727.5" y="1036" text-anchor="middle">Reviews</text>
+    <text class="small" x="967.5" y="1036" text-anchor="middle">Notifications</text>
+
+    <text class="groupTitle" x="1395" y="570" text-anchor="middle">Admin Area</text>
+    <text class="label" x="1395" y="628" text-anchor="middle">Admin Dashboard</text>
+    <text class="small" x="1272.5" y="711" text-anchor="middle">Manage Users</text>
+    <text class="small" x="1517.5" y="711" text-anchor="middle">Manage Listings</text>
+    <text class="small" x="1272.5" y="786" text-anchor="middle">Payment Audit</text>
+    <text class="small" x="1517.5" y="786" text-anchor="middle">Commissions</text>
+    <text class="small" x="1272.5" y="861" text-anchor="middle">Completed Deals</text>
+
+    <text class="small" x="472.5" y="1146" text-anchor="middle">Backend APIs</text>
+    <text class="small" x="692.5" y="1146" text-anchor="middle">Database</text>
+    <text class="small" x="912.5" y="1146" text-anchor="middle">Payment Gateway</text>
+    <text class="small" x="1132.5" y="1146" text-anchor="middle">Notifications</text>
+    <text class="small" x="1352.5" y="1146" text-anchor="middle">Real-time Chat</text>
+  </g>
+</svg>

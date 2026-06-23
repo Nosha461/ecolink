@@ -1,0 +1,930 @@
+.eco-signup-container {
+  position: relative;
+  min-height: calc(100vh - 160px);
+  padding: 52px 20px 86px;
+  background: #ffffff;
+  overflow: hidden;
+  font-family: "Montserrat", Arial, sans-serif;
+  line-height: 1.45;
+}
+
+.eco-signup-content {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 1088px);
+  margin: 0 auto;
+}
+
+.eco-map-background {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("/assets/map.png");
+  background-repeat: no-repeat;
+  background-size: min(1638px, 118vw);
+  background-position: center 349px;
+  opacity: 0.94;
+}
+
+.eco-header {
+  text-align: center;
+  margin-bottom:50px;
+}
+
+.eco-welcome {
+  margin: 0 0 10px;
+  color: #006c35;
+  font-size: clamp(2rem, 2.8vw, 2.5rem);
+  font-weight: 800;
+  line-height: 1.04;
+}
+
+.eco-subtext {
+  max-width: 1119px;
+  margin: 0 auto;
+  color: #9a9a9a;
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.eco-signup-container .eco-card-shell {
+  width: min(100%, 690px);
+  margin: 0 auto;
+  padding: 51px 29px;
+  border: 1px solid #eaf1db;
+  border-radius: 20px;
+  background: #fcfcfc;
+  display: block;
+}
+
+.eco-signup-container .eco-card {
+  background: #ffffff;
+  border-radius: 0;
+  padding: 10px;
+  box-shadow: none;
+  width: 100% !important;
+  max-width: none !important;
+  min-width: 0;
+  margin: 0;
+  display: block;
+}
+
+.eco-signup-container .eco-title {
+  margin: 0 0 34px;
+  text-align: center;
+  color: #0f0f0f;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: clamp(2rem, 2.2vw, 2.25rem);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.eco-signup-container .eco-role-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 254px);
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 31px;
+}
+
+.eco-signup-container .eco-role-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 192px;
+  padding: 10px;
+  border: 1px solid #f1f5e7;
+  border-radius: 20px;
+  background: #ffffff;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.eco-signup-container .eco-role-card.active {
+  border-color: #006c35;
+  box-shadow: 0 8px 22px rgba(0, 108, 53, 0.08);
+}
+
+.eco-signup-container .eco-role-input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.eco-signup-container .eco-role-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 74px;
+  margin-bottom: 8px;
+  border-radius: 50%;
+  background: #f2f2f2;
+  color: #006c35;
+  font-size: 2rem;
+}
+
+.eco-signup-container .eco-role-icon img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.eco-signup-container .eco-role-name {
+  color: #006c35;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.eco-signup-container .eco-role-text {
+  margin-top: 6px;
+  color: #111111;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.eco-signup-container .eco-status {
+  margin-bottom: 12px;
+  padding: 9px 12px;
+  border-radius: 20px;
+  font-size: 0.82rem;
+  line-height: 1.35;
+}
+
+.eco-signup-container .eco-status-success {
+  color: #005128;
+  background: #e6f0eb;
+  border: 1px solid #b0d1c0;
+}
+
+.eco-signup-container .eco-status-error {
+  color: #a11f1f;
+  background: #fde9e9;
+  border: 1px solid #f5caca;
+}
+
+.eco-signup-container .eco-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+.eco-signup-container .eco-field {
+  width: 513px;
+  margin-bottom: 18px;
+}
+
+.eco-signup-container .eco-location-field {
+  margin-bottom: 8px;
+}
+
+.eco-signup-container .eco-label {
+  display: inline-block;
+  margin-bottom: 4px;
+  color: #111111;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1;
+  padding: 6px 0 4px;
+}
+
+.eco-signup-container .eco-required {
+  color: #006c35;
+}
+
+.eco-signup-container .eco-input,
+.eco-signup-container .eco-select {
+  width: 100%;
+  border: 1px solid #8c8c8c !important;
+  border-radius: 6px;
+  background: #ffffff !important;
+  color: #111111;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 0.95rem;
+  font-style: normal;
+  font-weight: 500;
+  padding: 7px 12px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  display: block;
+  box-shadow: none;
+}
+
+.eco-signup-container input.eco-input,
+.eco-signup-container select.eco-select {
+  border: 1px solid #8c8c8c !important;
+}
+
+.eco-signup-container .eco-input-with-icon .eco-input,
+.eco-signup-container .eco-password-wrap .eco-input,
+.eco-signup-container .eco-select-wrap .eco-select {
+  border: 1px solid #8c8c8c !important;
+  background: #ffffff !important;
+}
+
+.eco-signup-container .eco-input::placeholder {
+  color: #bfbfbf;
+  font-size: 0.95rem;
+}
+
+.eco-signup-container .eco-input-tall {
+  height: 52px;
+}
+
+.eco-signup-container .eco-input-compact {
+  height: 42px;
+}
+
+.eco-signup-container .eco-select-large {
+  height: 56px;
+}
+
+.eco-signup-container .eco-input:focus,
+.eco-signup-container .eco-select:focus {
+  border-color: #006c35;
+  box-shadow: 0 0 0 3px rgba(0, 108, 53, 0.1);
+}
+
+.eco-signup-container .eco-input-with-icon,
+.eco-signup-container .eco-select-wrap,
+.eco-signup-container .eco-password-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.eco-signup-container .eco-leading-icon,
+.eco-signup-container .eco-select-icon,
+.eco-signup-container .eco-select-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #006c35;
+  pointer-events: none;
+}
+
+.eco-signup-container .eco-leading-icon {
+  left: 10px;
+  color: #252525;
+  font-size: 0.82rem;
+  line-height: 1;
+  width: 18px;
+  height: 12px;
+}
+
+.eco-signup-container .eco-flag-egypt {
+  position: relative;
+  display: block;
+  width: 18px;
+  height: 12px;
+  border: 1px solid #9c9c9c;
+  border-radius: 1px;
+  background:
+    linear-gradient(
+      to bottom,
+      #d93a32 0 33.33%,
+      #ffffff 33.33% 66.66%,
+      #111111 66.66% 100%
+    );
+  overflow: hidden;
+}
+
+.eco-signup-container .eco-flag-egypt-mark {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 2px;
+  height: 4px;
+  background: #c8a600;
+  border-radius: 1px;
+  transform: translate(-50%, -50%);
+}
+
+.eco-signup-container .eco-input-has-icon,
+.eco-signup-container .eco-select {
+  padding-left: 38px;
+}
+
+.eco-signup-container input.eco-input.eco-input-has-icon {
+  padding-left: 44px !important;
+}
+
+.eco-signup-container .eco-password-input {
+  padding-right: 34px;
+}
+
+.eco-signup-container .eco-password-toggle {
+  position: absolute;
+  top: 50%;
+  right: 9px;
+  transform: translateY(-50%);
+  border: 1px solid transparent;
+  border-radius: 20px;
+  background: transparent;
+  color: #7b7b7b;
+  font-size: 0.88rem;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}
+
+.eco-signup-container .eco-password-toggle:hover {
+  color: #006130;
+  background: #e6f0eb;
+}
+
+.eco-signup-container .eco-select {
+  appearance: none;
+  padding-right: 42px;
+  color: transparent;
+  text-shadow: 0 0 0 transparent;
+  border-color: #b0d1c0 !important;
+  border-radius: 20px;
+  box-shadow: 0 8px 18px rgba(0, 108, 53, 0.06);
+  cursor: pointer;
+}
+
+.eco-signup-container .eco-select option {
+  color: #111111;
+}
+
+.eco-signup-container .eco-select-icon {
+  left: 9px;
+}
+
+.eco-signup-container .eco-select-arrow {
+  right: 12px;
+}
+
+.eco-signup-container .eco-select-icon svg,
+.eco-signup-container .eco-select-arrow svg {
+  width: 16px;
+  height: 16px;
+}
+
+.eco-signup-container .eco-select-wrap:hover .eco-select {
+  border-color: #006c35 !important;
+}
+
+.eco-signup-container .eco-select-wrap:hover .eco-select-arrow {
+  color: #006130;
+}
+
+.eco-signup-container .eco-select-caption {
+  position: absolute;
+  left: 24px;
+  top: 8px;
+  color: #111111;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  pointer-events: none;
+  line-height: 1;
+}
+
+.eco-signup-container .eco-select-caption::after {
+  content: attr(data-city);
+  display: block;
+  margin-top: 3px;
+  color: #bfbfbf;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 0.95rem;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.eco-signup-container .signup-dashboard-dropdown {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+}
+
+.eco-signup-container .signup-dashboard-dropdown-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 40px;
+  padding: 0 12px 0 14px;
+  border: 1px solid #d0d5dd;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #64748b;
+  cursor: pointer;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.eco-signup-container .signup-dashboard-dropdown-trigger:hover {
+  border-color: #b0d1c0;
+  transform: translateY(-1px);
+}
+
+.eco-signup-container .signup-dashboard-dropdown.open .signup-dashboard-dropdown-trigger,
+.eco-signup-container .signup-dashboard-dropdown-trigger:focus-visible {
+  border-color: #b0d1c0;
+  box-shadow: 0 0 0 3px rgba(0, 108, 53, 0.08);
+  outline: none;
+}
+
+.eco-signup-container .signup-dashboard-dropdown-trigger img {
+  width: 17px;
+  height: 17px;
+  object-fit: contain;
+  transition: transform 180ms ease;
+}
+
+.eco-signup-container .signup-dashboard-dropdown.open .signup-dashboard-dropdown-trigger img {
+  transform: rotate(35deg);
+}
+
+.eco-signup-container .signup-dashboard-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  z-index: 10;
+  display: grid;
+  gap: 4px;
+  padding: 8px;
+  border: 1px solid #d9e9e1;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 16px 30px rgba(0, 49, 24, 0.12);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-6px) scale(0.98);
+  transform-origin: top center;
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.eco-signup-container .signup-dashboard-dropdown.open .signup-dashboard-dropdown-menu {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+.eco-signup-container .signup-dashboard-dropdown-menu button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  min-height: 34px;
+  padding: 8px 10px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: #111111;
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+.eco-signup-container .signup-dashboard-dropdown-menu button:hover,
+.eco-signup-container .signup-dashboard-dropdown-menu button.selected {
+  background: #e6f0eb;
+  color: #006c35;
+}
+
+.eco-signup-container .signup-dashboard-dropdown-menu img {
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+}
+
+.eco-signup-container .eco-terms {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 513px;
+  margin: 0;
+  color: #1f1f1f;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 0.9375rem;
+  cursor: pointer;
+}
+
+.eco-signup-container .eco-terms-input {
+  appearance: auto;
+  -webkit-appearance: checkbox;
+  width: 12px;
+  height: 12px;
+  margin: 0 4px 0 0;
+  accent-color: #006c35;
+  cursor: pointer;
+  flex: 0 0 auto;
+}
+
+.eco-signup-container .eco-footer-actions {
+  text-align: center;
+  width: 100%;
+  margin-top: 14px;
+}
+
+.eco-signup-container .eco-field-error {
+  margin: 6px 0 0;
+  color: #b42318;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 0.82rem;
+  line-height: 1.35;
+}
+
+.eco-signup-container .eco-terms-error {
+  width: 513px;
+  margin-top: 8px;
+}
+
+.eco-signup-container .eco-btn-submit {
+  min-width: 227px;
+  height: 53px;
+  padding: 10px 53px;
+  border: 1.5px solid #006c35;
+  border-radius: 40px;
+  background: #006c35;
+  color: #ffffff;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  margin-top: 18px;
+}
+
+.eco-signup-container .eco-btn-submit:hover {
+  background: #006130;
+  border-color: #006130;
+  transform: translateY(-1px);
+}
+
+.eco-signup-container .eco-btn-submit:active {
+  background: #00562a;
+  border-color: #00562a;
+  transform: translateY(0);
+}
+
+.eco-signup-container .eco-btn-submit:disabled {
+  opacity: 0.75;
+  cursor: not-allowed;
+}
+
+.eco-signup-container .eco-status {
+  width: 513px;
+  margin: 0 auto 12px;
+  text-align: left;
+}
+
+.eco-signup-container .eco-otp-panel {
+  width: min(100%, 513px);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.eco-signup-container .eco-otp-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  margin-bottom: 18px;
+  border-radius: 50%;
+  background: #e6f0eb;
+}
+
+.eco-signup-container .eco-otp-icon img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
+.eco-signup-container .eco-otp-title {
+  margin-bottom: 14px;
+}
+
+.eco-signup-container .eco-otp-copy {
+  margin: 0 auto 24px;
+  color: #4b4b4b;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.55;
+}
+
+.eco-signup-container .eco-otp-form {
+  align-items: center;
+}
+
+.eco-signup-container .eco-otp-field {
+  margin-bottom: 4px;
+}
+
+.eco-signup-container .eco-otp-input {
+  text-align: center;
+  letter-spacing: 0;
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.eco-signup-container .eco-otp-help {
+  min-height: 22px;
+  margin: 7px 0 0;
+  color: #747474;
+  font-size: 0.82rem;
+  line-height: 1.35;
+}
+
+.eco-signup-container .eco-otp-field .eco-status {
+  width: 100%;
+  margin: 10px 0 0;
+}
+
+.eco-signup-container .eco-otp-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 6px;
+}
+
+.eco-signup-container .eco-otp-link-button,
+.eco-signup-container .eco-otp-secondary {
+  border: 0;
+  background: transparent;
+  color: #006c35;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.eco-signup-container .eco-otp-link-button:hover,
+.eco-signup-container .eco-otp-secondary:hover {
+  color: #004120;
+  transform: translateY(-1px);
+}
+
+.eco-signup-container .eco-otp-link-button:disabled {
+  color: #8c8c8c;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.eco-signup-container .eco-otp-secondary {
+  margin-top: 18px;
+  color: #4b4b4b;
+  font-weight: 600;
+}
+
+html[dir="rtl"] .eco-signup-container .eco-status,
+html[dir="rtl"] .eco-signup-container .signup-dashboard-dropdown-menu button {
+  text-align: right;
+}
+
+html[dir="rtl"] .eco-signup-container .eco-leading-icon {
+  left: auto;
+  right: 10px;
+}
+
+html[dir="rtl"] .eco-signup-container input.eco-input.eco-input-has-icon {
+  padding-left: 12px !important;
+  padding-right: 44px !important;
+}
+
+html[dir="rtl"] .eco-signup-container .eco-password-input {
+  padding-left: 34px;
+  padding-right: 12px;
+}
+
+html[dir="rtl"] .eco-signup-container .eco-password-toggle {
+  left: 9px;
+  right: auto;
+}
+
+html[dir="rtl"] .eco-signup-container .eco-terms-input {
+  margin: 0 0 0 4px;
+}
+
+.eco-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(17, 17, 17, 0.28);
+  backdrop-filter: blur(2px);
+}
+
+.eco-modal {
+  width: min(100%, 420px);
+  padding: 26px 24px 22px;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.16);
+  text-align: center;
+}
+
+.eco-modal-error {
+  border: 1px solid #f3d0d0;
+}
+
+.eco-modal-success {
+  border: 1px solid #b0d1c0;
+}
+
+.eco-modal-title {
+  margin: 0 0 10px;
+  color: #111111;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.eco-modal-message {
+  margin: 0 0 18px;
+  color: #4a4a4a;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 0.98rem;
+  line-height: 1.5;
+}
+
+.eco-modal-button {
+  min-width: 116px;
+  height: 42px;
+  border: 1.5px solid #006c35;
+  border-radius: 40px;
+  background: #006c35;
+  color: #ffffff;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.eco-modal-button:hover {
+  background: #006130;
+  border-color: #006130;
+  transform: translateY(-1px);
+}
+
+.eco-modal-button:active {
+  background: #00562a;
+  border-color: #00562a;
+  transform: translateY(0);
+}
+
+.eco-signup-container .eco-divider {
+  margin: 50px 0 12px;
+  color: #101010;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.eco-signup-container .social-icons-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.eco-signup-container .social-icon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  cursor: pointer;
+  transition: transform 0.18s ease;
+}
+
+.eco-signup-container .social-icon:hover {
+  transform: translateY(-2px);
+}
+
+
+.eco-signup-container .eco-login-prompt {
+  margin: 54px 0 10px;
+  color: #111111;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.eco-signup-container .eco-link {
+  color: #006c35;
+}
+
+@media (max-width: 900px) {
+  .eco-signup-container {
+    padding: 36px 16px 60px;
+  }
+
+  .eco-map-background {
+    background-size: 1300px;
+    background-position: center 430px;
+    opacity: 0.72;
+  }
+
+  .eco-signup-container .eco-card-shell {
+    width: min(100%, 690px);
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .eco-signup-container .eco-card {
+    padding: 10px;
+  }
+
+  .eco-subtext {
+    font-size: 1rem;
+  }
+
+  .eco-signup-container .eco-field,
+  .eco-signup-container .eco-terms,
+  .eco-signup-container .eco-status,
+  .eco-signup-container .eco-terms-error {
+    width: min(100%, 513px);
+  }
+}
+
+@media (max-width: 640px) {
+  .eco-signup-container {
+    padding: 24px 12px 44px;
+  }
+
+  .eco-map-background {
+    background-size: 980px;
+    background-position: center 460px;
+    opacity: 0.34;
+  }
+
+  .eco-header {
+    margin-bottom: 24px;
+  }
+
+  .eco-subtext {
+    font-size: 0.88rem;
+    line-height: 1.35;
+  }
+
+  .eco-signup-container .eco-card-shell {
+    padding: 10px;
+  }
+
+  .eco-signup-container .eco-card {
+    padding: 16px 14px 20px;
+  }
+
+  .eco-signup-container .eco-role-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .eco-signup-container .eco-role-card {
+    width: 100%;
+    min-height: 140px;
+    border-radius: 20px;
+  }
+
+  .eco-signup-container .eco-field,
+  .eco-signup-container .eco-terms,
+  .eco-signup-container .eco-status,
+  .eco-signup-container .eco-terms-error {
+    width: 100%;
+  }
+
+  .eco-signup-container .eco-label {
+    font-size: 1rem;
+  }
+
+  .eco-signup-container .eco-divider,
+  .eco-signup-container .eco-login-prompt {
+    font-size: 1.2rem;
+  }
+
+  .eco-signup-container .eco-btn-submit {
+    width: 100%;
+  }
+
+  .eco-modal {
+    padding: 22px 18px 18px;
+  }
+}
+

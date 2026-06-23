@@ -1,0 +1,448 @@
+.login-page-wrapper {
+  position: relative;
+  min-height: calc(100vh - 160px);
+  padding: 58px 20px 86px;
+  overflow: hidden;
+  background: #ffffff;
+  font-family: "Montserrat", Arial, sans-serif;
+  line-height: 1.45;
+}
+
+.login-page-wrapper .map-background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: url("/assets/map.png");
+  background-repeat: no-repeat;
+  background-size: min(1638px, 118vw);
+  background-position: center 175px;
+  opacity: 0.94;
+}
+
+.login-page-wrapper .content-container {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 833px);
+  margin: 0 auto;
+}
+
+.login-page-wrapper .login-header-section {
+  max-width: 844px;
+  margin: 0 auto 50px;
+  text-align: center;
+}
+
+.login-page-wrapper .eco-welcome-title {
+  margin: 0 0 8px;
+  color: #006c35;
+  font-size: clamp(2rem, 2.8vw, 2.5rem);
+  font-weight: 800;
+  line-height: 1;
+}
+
+.login-page-wrapper .eco-subtext {
+  max-width: 844px;
+  margin: 0 auto;
+  color: #9a9a9a;
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.login-page-wrapper .eco-login-card {
+  width: min(100%, 520px);
+  min-height: 640px;
+  margin: 0 auto;
+  padding: 44px 39px 32px;
+  overflow: hidden;
+  border: 1px solid #006c35;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.login-page-wrapper .form-title {
+  margin: 0 0 44px;
+  color: #000000;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 2.25rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.login-page-wrapper .login-form {
+  width: min(100%, 410px);
+  margin: 0 auto;
+}
+
+.login-page-wrapper .login-field {
+  margin-bottom: 22px;
+}
+
+.login-page-wrapper .eco-label {
+  display: block;
+  margin: 0 0 11px;
+  color: #000000;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.login-page-wrapper .eco-input {
+  width: 100%;
+  max-width: 100%;
+  height: 48px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 6px;
+  outline: none;
+  background: #efefef;
+  color: #111111;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.login-page-wrapper .eco-input::placeholder {
+  color: rgba(0, 0, 0, 0.38);
+}
+
+.login-page-wrapper .eco-input:focus {
+  box-shadow: 0 0 0 3px rgba(0, 108, 53, 0.14);
+}
+
+.login-page-wrapper .password-input-group {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+}
+
+.login-page-wrapper .password-input {
+  padding-right: 72px;
+}
+
+.login-page-wrapper .password-toggle-icon {
+  position: absolute;
+  top: 50%;
+  right: 19px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 20px;
+  background: transparent;
+  color: #000000;
+  font-size: 1.15rem;
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+
+.login-page-wrapper .password-toggle-icon:hover {
+  background: #e6f0eb;
+  color: #006130;
+}
+
+.login-page-wrapper .password-toggle-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.login-page-wrapper .remember-forgot-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 100%;
+  margin: 2px 0 24px;
+}
+
+.login-page-wrapper .remember-me {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.login-page-wrapper .eco-check {
+  width: 15px;
+  height: 15px;
+  margin: 0;
+  accent-color: #006c35;
+}
+
+.login-page-wrapper .remember-me label,
+.login-page-wrapper .forgot-password-link {
+  margin: 0;
+  color: #000000;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.login-page-wrapper .forgot-password-link {
+  text-decoration: none;
+}
+
+.login-page-wrapper .forgot-password-link:hover {
+  color: #006c35;
+}
+
+.login-page-wrapper .btn-center-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 0 0 16px;
+}
+
+.login-page-wrapper .btn-eco {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 150px;
+  min-height: 50px;
+  padding: 10px 24px;
+  border: 1.5px solid #006c35;
+  border-radius: 40px;
+  background: #006c35;
+  color: #ffffff;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
+}
+
+.login-page-wrapper .btn-eco:hover {
+  background: #006130;
+  border-color: #006130;
+  transform: translateY(-1px);
+}
+
+.login-page-wrapper .btn-eco:active {
+  background: #00562a;
+  border-color: #00562a;
+  transform: translateY(0);
+}
+
+.login-page-wrapper .btn-eco:disabled {
+  opacity: 0.78;
+  cursor: not-allowed;
+}
+
+.login-page-wrapper .login-spinner {
+  animation: login-spin 0.85s linear infinite;
+}
+
+.login-page-wrapper .social-login {
+  text-align: center;
+}
+
+.login-page-wrapper .continue-with-text {
+  margin: 0 0 10px;
+  color: #000000;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.login-page-wrapper .social-icons-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.login-page-wrapper .social-icon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  cursor: pointer;
+  transition: transform 0.18s ease;
+}
+
+.login-page-wrapper .social-icon:hover {
+  transform: translateY(-2px);
+}
+
+
+.login-page-wrapper .signup-prompt-wrap {
+  margin-top: 42px;
+  text-align: center;
+}
+
+.login-page-wrapper .already-have-account-text {
+  margin: 0;
+  color: #000000;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.login-page-wrapper .eco-signup-link {
+  color: #006c35;
+  text-decoration: none;
+}
+
+.login-page-wrapper .eco-signup-link:hover {
+  color: #006130;
+}
+
+.eco-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(17, 17, 17, 0.28);
+  backdrop-filter: blur(2px);
+}
+
+.eco-modal {
+  width: min(100%, 420px);
+  padding: 26px 24px 22px;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.16);
+  text-align: center;
+}
+
+.eco-modal-error {
+  border: 1px solid #f3d0d0;
+}
+
+.eco-modal-success {
+  border: 1px solid #b0d1c0;
+}
+
+.eco-modal-title {
+  margin: 0 0 10px;
+  color: #111111;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.eco-modal-message {
+  margin: 0 0 18px;
+  color: #4a4a4a;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 0.98rem;
+  line-height: 1.5;
+}
+
+.eco-modal-button {
+  min-width: 116px;
+  height: 42px;
+  border: 1.5px solid #006c35;
+  border-radius: 40px;
+  background: #006c35;
+  color: #ffffff;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.eco-modal-button:hover {
+  background: #006130;
+  border-color: #006130;
+  transform: translateY(-1px);
+}
+
+.eco-modal-button:active {
+  background: #00562a;
+  border-color: #00562a;
+  transform: translateY(0);
+}
+
+@keyframes login-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .login-page-wrapper {
+    padding: 42px 16px 66px;
+  }
+
+  .login-page-wrapper .map-background {
+    background-size: 1150px auto;
+    background-position: center 245px;
+  }
+
+  .login-page-wrapper .login-header-section {
+    margin-bottom: 36px;
+  }
+
+  .login-page-wrapper .eco-subtext {
+    font-size: 1rem;
+  }
+
+  .login-page-wrapper .eco-login-card {
+    min-height: auto;
+    padding: 36px 24px 34px;
+  }
+
+  .login-page-wrapper .form-title {
+    margin-bottom: 42px;
+    font-size: 2.35rem;
+  }
+
+  .login-page-wrapper .eco-label {
+    font-size: 1.75rem;
+  }
+
+  .login-page-wrapper .eco-input {
+    width: 100%;
+    height: 58px;
+    font-size: 1.12rem;
+  }
+
+  .login-page-wrapper .password-input-group {
+    width: 100%;
+  }
+
+  .login-page-wrapper .remember-forgot-wrapper {
+    gap: 16px;
+  }
+
+  .login-page-wrapper .remember-me label,
+  .login-page-wrapper .forgot-password-link,
+  .login-page-wrapper .continue-with-text,
+  .login-page-wrapper .already-have-account-text,
+  .login-page-wrapper .btn-eco {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-page-wrapper .eco-welcome-title {
+    font-size: 1.7rem;
+  }
+
+  .login-page-wrapper .remember-forgot-wrapper {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .login-page-wrapper .btn-eco {
+    width: 100%;
+  }
+
+  .login-page-wrapper .signup-prompt-wrap {
+    margin-top: 34px;
+  }
+}
+

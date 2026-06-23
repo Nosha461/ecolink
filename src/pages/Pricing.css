@@ -1,0 +1,696 @@
+/* =========================
+   BASE
+========================= */
+:root {
+  --primary-green: #006c35;
+  --primary-green-dark: #006130;
+  --primary-green-active: #00562a;
+  --soft-green: #b0d1c0;
+  --light-bg: #f6f6f4;
+  --faq-bg: #efefed;
+  --text-dark: #171717;
+  --text-muted: #8f8f8f;
+  --text-muted-2: #5c5c5c;
+  --border-soft: #006c35;
+  --button-radius: 40px;
+  --white: #ffffff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Montserrat", Arial, sans-serif;
+  color: var(--text-dark);
+  background-color: var(--light-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.pricing-page {
+  font-family: "Montserrat", Arial, sans-serif;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.pricing-page {
+  overflow-x: hidden;
+}
+
+/* =========================
+   SHARED
+========================= */
+.section-title {
+  font-size: 3rem;
+  line-height: 1.15;
+  font-weight: 700;
+  color: var(--primary-green) !important;
+}
+
+.pricing-outline-btn {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  min-width: 192px;
+  height: 50px;
+  padding: 10px 24px !important;
+  border: 1.5px solid var(--border-soft) !important;
+  border-radius: var(--button-radius) !important;
+  background-color: transparent !important;
+  color: var(--text-dark) !important;
+  font-size: 1.05rem;
+  font-weight: 500 !important;
+  line-height: 1;
+  text-decoration: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  appearance: none;
+  -webkit-appearance: none;
+  transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.2s ease !important;
+}
+
+.pricing-outline-btn:hover,
+.pricing-outline-btn:focus,
+.pricing-outline-btn:focus-visible {
+  background-color: var(--primary-green-dark) !important;
+  color: #ffffff !important;
+  border-color: var(--primary-green-dark) !important;
+  box-shadow: none !important;
+  outline: none !important;
+  text-decoration: none !important;
+  transform: translateY(-1px);
+}
+
+.pricing-outline-btn:active {
+  background-color: var(--primary-green-active) !important;
+  color: #ffffff !important;
+  border-color: var(--primary-green-active) !important;
+  box-shadow: none !important;
+  transform: translateY(0);
+}
+
+/* =========================
+   HERO
+========================= */
+.pricing-hero {
+  position: relative;
+  padding: 95px 0 70px;
+  background-color: var(--light-bg);
+}
+
+.pricing-heading {
+  font-size: 2.2rem;
+  line-height: 1.15;
+  font-weight: 700;
+  color: var(--primary-green) !important;
+}
+
+.pricing-subtitle {
+  max-width: 900px;
+  margin: 0 auto 42px;
+  color: #8d8d8d;
+  font-size: 1.15rem;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.commission-card {
+  max-width: 680px;
+  background-color: transparent;
+  border: 1.8px solid var(--border-soft);
+  border-radius: 34px;
+  padding: 42px 48px 26px;
+  box-shadow: none;
+}
+
+.commission-title {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.commission-rate {
+  color: var(--primary-green);
+}
+
+.commission-features {
+  max-width: 470px;
+  margin: 0 auto 26px;
+  text-align: left;
+}
+
+.commission-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 14px;
+  font-size: 1.08rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: #1c1c1c;
+}
+
+.commission-features li i {
+  color: var(--primary-green);
+  font-size: 1.3rem;
+  line-height: 1;
+  margin-top: 2px;
+}
+
+.start-btn,
+.faq-contact-btn {
+  min-width: 192px;
+  height: 50px;
+  font-size: 1.05rem !important;
+  margin-top: 4px;
+  margin-bottom: 14px;
+}
+
+.commission-note {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #2b2b2b;
+}
+
+/* =========================
+   LEAF DECOR
+========================= */
+.leaf-decor {
+  position: absolute;
+    left: -345px;
+    top: 20px;
+    width: 503px;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.leaf-decor img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+
+
+.pricing-hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* =========================
+   SIMPLE EXAMPLE
+========================= */
+.example-section {
+  padding: 18px 0 90px;
+  background-color: var(--light-bg);
+}
+
+.example-text {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  font-weight: 700;
+  color: #1b1b1b;
+  margin-bottom: 28px;
+}
+
+.example-arrow {
+  color: var(--primary-green);
+  font-weight: 700;
+  padding: 0 4px;
+}
+
+.example-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 18px;
+  margin-bottom: 30px;
+}
+
+.example-badge {
+  display: inline-block;
+  background-color: #006130;
+  color: #fff;
+  padding: 10px 18px !important;
+  border: 1px solid #006130;
+  border-radius: var(--button-radius);
+  font-size: 0.95rem !important;
+  font-weight: 600;
+  margin: 6px;
+}
+
+/* .example-badge:nth-child(2) {
+  animation-delay: 0.12s;
+}
+
+.example-badge:nth-child(3) {
+  animation-delay: 0.24s;
+} */
+
+/* .example-badge:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 18px rgba(109, 143, 22, 0.22);
+  background: linear-gradient(180deg, #86ad1d 0%, #6d8f16 100%);
+} */
+
+@keyframes badgeFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.example-note {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1e1e1e;
+}
+
+/* =========================
+   HOW IT WORKS
+========================= */
+.how-it-works-section {
+  padding: 40px 0 120px;
+  background-color: var(--light-bg);
+}
+
+.how-grid {
+  margin-top: 14px;
+  row-gap: 48px;
+}
+
+.work-step {
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+.work-image-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 175px;
+  margin-bottom: 14px;
+}
+
+.work-image-wrap img {
+  max-height: 150px;
+  width: auto;
+}
+
+.work-step-title {
+  font-size: 1.18rem;
+  line-height: 1.3;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 0.35rem;
+}
+
+.work-step-text {
+  margin-bottom: 0;
+  color: #222;
+  font-size: 1rem;
+  line-height: 1.35;
+  font-weight: 500;
+}
+
+/* =========================
+   FAQ
+========================= */
+.faq-section {
+  padding: 10px 0 90px;
+  background-color: var(--light-bg);
+}
+
+.faq-row {
+  align-items: flex-start;
+}
+
+.faq-intro {
+  padding-top: 78px;
+  max-width: 310px;
+}
+
+.faq-title {
+  font-size: 3rem;
+  line-height: 1.05;
+  font-weight: 700;
+}
+
+.faq-title span {
+  display: block;
+  color: var(--primary-green) !important;
+}
+
+.faq-subtext {
+  max-width: 260px;
+  color: #3e3e3e;
+  font-size: 1rem;
+  line-height: 1.35;
+  font-weight: 500;
+  margin-bottom: 1.7rem;
+}
+
+.faq-contact-btn {
+  min-width: 192px;
+  height: 50px;
+  font-size: 1.05rem;
+}
+
+.custom-faq-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.faq-item {
+  border: none;
+  border-radius: var(--button-radius) !important;
+  overflow: hidden;
+  background-color: #ececeb;
+}
+
+.faq-item.active-item {
+  background-color: #ececeb;
+}
+
+.custom-faq-accordion .accordion-button {
+  background-color: transparent;
+  box-shadow: none !important;
+  border: 1px solid transparent;
+  padding: 24px 62px 24px 26px;
+  color: #191919;
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.4;
+  border-radius: var(--button-radius) !important;
+}
+.custom-faq-accordion .accordion-button,
+.custom-faq-accordion .accordion-button:focus,
+.custom-faq-accordion .accordion-button:active,
+.custom-faq-accordion .accordion-button:not(.collapsed) {
+  box-shadow: none !important;
+  outline: none !important;
+  border: none !important;
+  background-color: transparent !important;
+}
+
+.custom-faq-accordion .accordion-item,
+.custom-faq-accordion .accordion-header,
+.custom-faq-accordion .accordion-collapse,
+.custom-faq-accordion .accordion-body {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.custom-faq-accordion .accordion-button:not(.collapsed) {
+  background-color: transparent !important;
+  color: #191919;
+}
+
+.custom-faq-accordion .accordion-button::after {
+  position: absolute;
+    right: 24px;
+    width: 18px;
+    height: 18px;
+    background-image: none;
+    content: "\F286";
+    font-family: "bootstrap-icons";
+    font-size: 1.2rem;
+    color: var(--primary-green);
+    transform: rotate(0deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.custom-faq-accordion .accordion-button:not(.collapsed)::after {
+  content: "\F282" !important;
+  transform: rotate(0deg) !important;
+  background-image: none !important;
+}
+
+.custom-faq-accordion .accordion-body {
+  padding: 0 26px 24px;
+  color: #2c2c2c;
+  font-size: 1.02rem;
+  line-height: 1.5;
+  font-weight: 500;
+  max-width: 85%;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 1399.98px) {
+  .pricing-heading {
+    font-size: 2.7rem;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+  }
+
+  .faq-title {
+    font-size: 2.7rem;
+  }
+}
+
+@media (max-width: 1199.98px) {
+  .pricing-hero {
+    padding-top: 90px;
+  }
+
+  .commission-card {
+    max-width: 640px;
+  }
+
+  .faq-intro {
+    padding-top: 10px;
+    max-width: none;
+  }
+
+  .faq-subtext {
+    max-width: 100%;
+  }
+  .leaf-decor {
+    left: -250px;
+    width: 400px;
+    top: 40px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .pricing-hero {
+    padding: 80px 0 60px;
+  }
+
+  .pricing-heading {
+    font-size: 2.35rem;
+  }
+
+  .pricing-subtitle {
+    font-size: 1.02rem;
+    margin-bottom: 34px;
+  }
+
+  .commission-card {
+    padding: 34px 28px 24px;
+    border-radius: 28px;
+  }
+
+  .commission-title {
+    font-size: 2rem;
+  }
+
+  .section-title {
+    font-size: 2.2rem;
+  }
+
+  .example-text {
+    font-size: 1.1rem;
+  }
+
+  .faq-section {
+    padding-top: 20px;
+  }
+
+  .faq-title {
+    font-size: 2.3rem;
+  }
+
+  .custom-faq-accordion .accordion-body {
+    max-width: 100%;
+  }
+
+   .leaf-decor {
+    left: -180px;
+    width: 300px;
+    top: 70px;
+    opacity: 0.9;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .pricing-hero {
+    padding: 64px 0 52px;
+  }
+
+  .pricing-heading {
+    font-size: 1.95rem;
+    line-height: 1.25;
+  }
+
+  .pricing-subtitle {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    padding: 0 8px;
+  }
+
+  .commission-card {
+    padding: 28px 20px 22px;
+    border-radius: 24px;
+  }
+
+  .commission-title {
+    font-size: 1.55rem;
+    margin-bottom: 20px;
+  }
+
+  .commission-features {
+    max-width: 100%;
+  }
+
+  .commission-features li {
+    font-size: 1rem;
+    gap: 12px;
+  }
+
+  .section-title {
+    font-size: 1.85rem;
+    margin-bottom: 1.1rem;
+  }
+
+  .example-section {
+    padding: 8px 0 70px;
+  }
+
+  .example-text {
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  .example-badge {
+    font-size: 0.95rem;
+    min-height: 42px;
+    padding: 10px 16px;
+  }
+
+  .how-it-works-section {
+    padding: 20px 0 80px;
+  }
+
+  .how-grid {
+    row-gap: 32px;
+  }
+
+  .work-image-wrap {
+    min-height: 130px;
+  }
+
+  .work-image-wrap img {
+    max-height: 115px;
+  }
+
+  .work-step-title {
+    font-size: 1.05rem;
+  }
+
+  .work-step-text {
+    font-size: 0.96rem;
+  }
+
+  .faq-title {
+    font-size: 2rem;
+  }
+
+  .faq-subtext {
+    font-size: 0.95rem;
+  }
+
+  .custom-faq-accordion .accordion-button {
+    padding: 20px 52px 20px 18px;
+    font-size: 1rem;
+  }
+
+  .custom-faq-accordion .accordion-body {
+    padding: 0 18px 20px;
+    font-size: 0.95rem;
+  }
+
+  .custom-faq-accordion .accordion-button::after {
+    right: 18px;
+    font-size: 1rem;
+  }
+
+  .leaf-decor {
+    left: -120px;
+    width: 220px;
+    top: 100px;
+    opacity: 0.8;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .pricing-heading {
+    font-size: 1.7rem;
+  }
+
+  .pricing-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .commission-title {
+    font-size: 1.4rem;
+  }
+
+  .commission-features li {
+    font-size: 0.96rem;
+  }
+
+  .start-btn,
+  .faq-contact-btn {
+    min-width: 145px;
+    height: 46px;
+    font-size: 1rem;
+  }
+
+  .section-title {
+    font-size: 1.65rem;
+  }
+
+  .faq-title {
+    font-size: 1.75rem;
+  }
+
+  .example-badges {
+    gap: 10px !important;
+  }
+
+  .example-badge {
+    width: 100%;
+    max-width: 260px;
+  }
+  .leaf-decor {
+    left: -90px;
+    width: 180px;
+    top: 120px;
+    opacity: 0.75;
+  }
+}

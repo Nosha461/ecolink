@@ -1,0 +1,10 @@
+{
+  "name": "front.end",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "npx http-server ."
+  },
+  "dependencies": {
+    "socket.io-client": "^4.8.1"
+  }
+}

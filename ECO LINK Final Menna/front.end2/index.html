@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Chat</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:Arial;
+  height:100vh;
+  display:flex;
+  background:#f3f3f3;
+}
+
+.sidebar{
+  width:260px;
+  background:#2b1b3d;
+  color:white;
+  display:flex;
+  flex-direction:column;
+}
+
+.sidebar h3{
+  padding:18px;
+  border-bottom:1px solid rgba(255,255,255,.1);
+}
+
+#users{
+  flex:1;
+  overflow-y:auto;
+}
+
+.user{
+  padding:14px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  cursor:pointer;
+  transition:.2s;
+}
+
+.user:hover{
+  background:rgba(255,255,255,.08);
+}
+
+.user-name{
+  font-size:15px;
+  margin-bottom:4px;
+}
+
+.online{
+  color:lime;
+  font-size:12px;
+}
+
+.offline{
+  color:#bbb;
+  font-size:12px;
+}
+
+.chat{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  background:white;
+}
+
+.header{
+  padding:18px;
+  border-bottom:1px solid #eee;
+  font-weight:bold;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.messages{
+  flex:1;
+  overflow-y:auto;
+  padding:15px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.empty{
+  margin:auto;
+  color:#999;
+  font-size:15px;
+  text-align:center;
+}
+
+.msg-wrap{
+  display:flex;
+}
+
+.msg-wrap.sent{
+  justify-content:flex-end;
+}
+
+.msg-wrap.recv{
+  justify-content:flex-start;
+}
+
+.msg{
+  max-width:65%;
+  padding:10px 14px;
+  border-radius:16px;
+  font-size:14px;
+  word-wrap:break-word;
+}
+
+.sent .msg{
+  background:#25D366;
+  color:white;
+  border-bottom-right-radius:4px;
+}
+
+.recv .msg{
+  background:#ececec;
+  color:#222;
+  border-bottom-left-radius:4px;
+}
+
+#typing{
+  height:20px;
+  padding:0 15px;
+  color:#888;
+  font-size:12px;
+}
+
+.inputBox{
+  padding:12px;
+  display:flex;
+  gap:10px;
+  border-top:1px solid #eee;
+}
+
+#msg{
+  flex:1;
+  border:1px solid #ddd;
+  border-radius:22px;
+  padding:12px;
+  outline:none;
+}
+
+#msg:disabled{
+  background:#f5f5f5;
+  cursor:not-allowed;
+}
+
+#sendBtn{
+  border:none;
+  background:#25D366;
+  color:white;
+  border-radius:22px;
+  padding:0 24px;
+  cursor:pointer;
+}
+
+#sendBtn:disabled{
+  background:#aaa;
+  cursor:not-allowed;
+}
+
+#requestBox{
+  position:fixed;
+  top:20px;
+  right:20px;
+  background:white;
+  width:300px;
+  border-radius:12px;
+  box-shadow:0 5px 20px rgba(0,0,0,.15);
+  padding:20px;
+  display:none;
+  z-index:999;
+}
+
+#reqText{
+  margin-bottom:15px;
+  font-size:15px;
+}
+
+.req-btns{
+  display:flex;
+  gap:10px;
+}
+
+.req-btns button{
+  flex:1;
+  border:none;
+  padding:10px;
+  border-radius:8px;
+  cursor:pointer;
+  font-size:14px;
+}
+
+.btn-accept{
+  background:#25D366;
+  color:white;
+}
+
+.btn-reject{
+  background:#e74c3c;
+  color:white;
+}
+
+#blockedBanner{
+  display:none;
+  background:#fdecea;
+  color:#c0392b;
+  text-align:center;
+  padding:10px;
+  font-size:13px;
+  border-top:1px solid #f5c6c6;
+}
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+  <h3>💬 Chats</h3>
+  <div id="users"></div>
+</div>
+
+<div class="chat">
+
+  <div class="header" id="header">
+    <span id="headerText">Select a user</span>
+    <button
+      onclick="blockUser()"
+      style="background:#e74c3c;color:white;border:none;padding:8px 12px;border-radius:6px;cursor:pointer;"
+    >Block</button>
+  </div>
+
+  <div class="messages" id="messages">
+    <div class="empty">Select a user to start chatting</div>
+  </div>
+
+  <div id="typing"></div>
+
+  <div id="blockedBanner">
+    🚫 You have blocked this user. Unblock to send messages.
+  </div>
+
+  <div class="inputBox">
+    <input
+      id="msg"
+      placeholder="Type a message..."
+      onkeydown="handleKey(event)"
+      oninput="handleTyping()"
+    />
+    <button id="sendBtn" onclick="sendMsg()">Send</button>
+  </div>
+
+</div>
+
+<div id="requestBox">
+  <p id="reqText"></p>
+  <div class="req-btns">
+    <button class="btn-accept" onclick="acceptReq()">Accept</button>
+    <button class="btn-reject" onclick="rejectReq()">Reject</button>
+  </div>
+</div>
+
+<script src="http://localhost:3000/socket.io/socket.io.js"></script>
+
+<script>
+
+const token = localStorage.getItem("token");
+
+if(!token){
+  alert("No token found");
+}
+
+const payload = JSON.parse(atob(token.split(".")[1]));
+const myId = payload.id;
+
+let selectedUser     = null;
+let selectedUserName = null;
+let activeChats      = new Set();
+let blockedUsers     = new Set();
+let typingTimeout    = null;
+
+const socket = io("http://localhost:3000", {
+  auth:{ token }
+});
+
+async function blockUser(){
+  if(!selectedUser) return;
+  try{
+    const res = await fetch(
+      `http://localhost:3000/api/chat/block/${selectedUser}`,
+      {
+        method:"POST",
+        headers:{ Authorization:"Bearer " + token }
+      }
+    );
+    if(res.ok){
+      blockedUsers.add(selectedUser);
+      updateInputState();
+      alert("User blocked successfully");
+    }
+  }catch(err){
+    console.error(err);
+  }
+}
+
+function updateInputState(){
+  const isBlocked = blockedUsers.has(selectedUser);
+  const banner    = document.getElementById("blockedBanner");
+  const input     = document.getElementById("msg");
+  const btn       = document.getElementById("sendBtn");
+
+  if(isBlocked){
+    banner.style.display = "block";
+    input.disabled       = true;
+    btn.disabled         = true;
+    input.placeholder    = "You blocked this user";
+  } else {
+    banner.style.display = "none";
+    input.disabled       = false;
+    btn.disabled         = false;
+    input.placeholder    = "Type a message...";
+  }
+}
+
+async function loadUsers(){
+  const res = await fetch(
+    "http://localhost:3000/api/message/users",
+    { headers:{ Authorization:"Bearer " + token } }
+  );
+  const data = await res.json();
+  const usersBox = document.getElementById("users");
+  usersBox.innerHTML = "";
+  data.data.forEach(user => {
+    if(user._id === myId) return;
+    const div = document.createElement("div");
+    div.className = "user";
+    div.innerHTML = `
+      <div class="user-name">${user.firstName} ${user.lastName || ""}</div>
+      <div class="${user.isOnline ? 'online' : 'offline'}">
+        ${user.isOnline ? '● Online' : '● Offline'}
+      </div>
+    `;
+    div.onclick = () => openUser(user);
+    usersBox.appendChild(div);
+  });
+}
+
+async function openUser(user){
+  selectedUser     = user._id;
+  selectedUserName = user.firstName;
+  document.getElementById("headerText").innerText = user.firstName;
+  document.getElementById("typing").innerText     = "";
+  updateInputState();
+
+  const res = await fetch(
+    `http://localhost:3000/api/message/conversation-status/${user._id}`,
+    { headers:{ Authorization:"Bearer " + token } }
+  );
+  const data = await res.json();
+  const box = document.getElementById("messages");
+
+  if(data.status === "accepted"){
+    activeChats.add(user._id);
+    loadMessages(user._id);
+    return;
+  }
+
+  if(data.status === "pending"){
+    box.innerHTML = `<div class="empty">⏳ Waiting for approval...</div>`;
+    return;
+  }
+
+  if(data.status === "rejected"){
+    box.innerHTML = `<div class="empty">❌ Request rejected permanently</div>`;
+    return;
+  }
+
+  box.innerHTML = `
+    <div class="empty">
+      <button
+        onclick="sendRequest()"
+        style="border:none;background:#25D366;color:white;padding:12px 22px;border-radius:10px;cursor:pointer;font-size:15px;"
+      >Send Chat Request</button>
+    </div>
+  `;
+}
+
+function sendRequest(){
+  if(!selectedUser) return;
+  socket.emit("sendChatRequest", { receiverId: selectedUser });
+  document.getElementById("messages").innerHTML = `
+    <div class="empty">⏳ Request sent...</div>
+  `;
+}
+
+async function loadMessages(userId){
+  const res = await fetch(
+    `http://localhost:3000/api/message/conversation/${userId}`,
+    { headers:{ Authorization:"Bearer " + token } }
+  );
+  const data = await res.json();
+  const box = document.getElementById("messages");
+  box.innerHTML = "";
+  if(!data.data.length){
+    box.innerHTML = `<div class="empty">No messages yet</div>`;
+    return;
+  }
+  data.data.forEach(msg => appendMessage(msg));
+  box.scrollTop = box.scrollHeight;
+}
+
+function appendMessage(message){
+  const box   = document.getElementById("messages");
+  const empty = box.querySelector(".empty");
+  if(empty) box.innerHTML = "";
+
+  const isSent = String(message.senderId) === String(myId);
+  const div    = document.createElement("div");
+  div.className = "msg-wrap " + (isSent ? "sent" : "recv");
+  div.innerHTML = `<div class="msg">${message.message}</div>`;
+  box.appendChild(div);
+  box.scrollTop = box.scrollHeight;
+}
+
+function sendMsg(){
+  const input = document.getElementById("msg");
+  const msg   = input.value.trim();
+  if(!msg)          return;
+  if(!selectedUser) return;
+  if(!activeChats.has(selectedUser)){
+    alert("You can't send a message. The chat is not active.");
+    return;
+  }
+  if(blockedUsers.has(selectedUser)){
+    alert("You blocked this user. Unblock them to send messages.");
+    return;
+  }
+
+  socket.emit("sendMessage", { receiverId: selectedUser, message: msg });
+
+  appendMessage({
+    senderId: myId,
+    message:  msg
+  });
+
+  input.value = "";
+}
+
+function handleKey(e){
+  if(e.key === "Enter") sendMsg();
+}
+
+function handleTyping(){
+  if(!selectedUser)                  return;
+  if(!activeChats.has(selectedUser)) return;
+  if(blockedUsers.has(selectedUser)) return;
+  socket.emit("typing", { to: selectedUser });
+  clearTimeout(typingTimeout);
+  typingTimeout = setTimeout(() => {
+    socket.emit("stopTyping", { to: selectedUser });
+  }, 1200);
+}
+
+function acceptReq(){
+  socket.emit("acceptChatRequest", window.currentRequest);
+  activeChats.add(window.currentRequest.senderId);
+  document.getElementById("requestBox").style.display = "none";
+  if(selectedUser === window.currentRequest.senderId){
+    loadMessages(selectedUser);
+  }
+}
+
+function rejectReq(){
+  socket.emit("rejectChatRequest", window.currentRequest);
+  document.getElementById("requestBox").style.display = "none";
+}
+
+socket.on("newChatRequest", (data) => {
+  window.currentRequest = data;
+  document.getElementById("reqText").innerText = "Someone wants to chat with you";
+  document.getElementById("requestBox").style.display = "block";
+});
+
+socket.on("chatRequestAccepted", () => {
+  if(selectedUser){
+    activeChats.add(selectedUser);
+    loadMessages(selectedUser);
+  }
+});
+
+socket.on("receiveMessage", (data) => {
+  const sender  = String(data.senderId);
+  const current = String(selectedUser);
+  if(sender === String(myId)) return;
+  if(sender === current){
+    appendMessage(data);
+  }
+});
+
+socket.on("typing", ({ from }) => {
+  if(from === selectedUser){
+    document.getElementById("typing").innerText = `${selectedUserName} is typing...`;
+  }
+});
+
+socket.on("stopTyping", ({ from }) => {
+  if(from === selectedUser){
+    document.getElementById("typing").innerText = "";
+  }
+});
+
+socket.on("onlineUsers", () => {
+  loadUsers();
+});
+
+socket.on("blocked", (data) => {
+  blockedUsers.add(data.blockedId);
+  if(selectedUser === data.blockedId){
+    updateInputState();
+  }
+});
+
+/* ================= PUSH NOTIFICATIONS ================= */
+
+async function registerPush(){
+  if(!("serviceWorker" in navigator) || !("PushManager" in window)) return;
+
+  const permission = await Notification.requestPermission();
+  if(permission !== "granted") return;
+
+  const reg = await navigator.serviceWorker.register("/sw.js");
+
+  const subscription = await reg.pushManager.subscribe({
+    userVisibleOnly: true,
+    applicationServerKey: "YOUR_VAPID_PUBLIC_KEY" // ← حطها من الـ .env في السيرفر
+  });
+
+  await fetch("http://localhost:3000/api/push/subscribe", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + token
+    },
+    body: JSON.stringify(subscription)
+  });
+}
+
+registerPush();
+
+/* ================= INIT ================= */
+
+loadUsers();
+
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
